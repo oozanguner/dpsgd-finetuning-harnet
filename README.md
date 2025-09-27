@@ -78,6 +78,7 @@ DP_Finetuning_Harnet_Submission/
 
 ## References
 
+```bibtex
 @misc{reiss2012pamap2,
   author       = {Reiss, Attila},
   title        = {{PAMAP2 Physical Activity Monitoring}},
@@ -85,7 +86,9 @@ DP_Finetuning_Harnet_Submission/
   howpublished = {UCI Machine Learning Repository},
   note         = {{DOI}: https://doi.org/10.24432/C5NW2H}
 }
+```
 
+```bibtex
 @article{yuan2024self,
   title={Self-supervised learning for human activity recognition using 700,000 person-days of wearable data},
   author={Yuan, Hang and Chan, Shing and Creagh, Andrew P and Tong, Catherine and Acquah, Aidan and Clifton, David A and Doherty, Aiden},
@@ -96,3 +99,4 @@ DP_Finetuning_Harnet_Submission/
   year={2024},
   publisher={Nature Publishing Group UK London}
 }
+```

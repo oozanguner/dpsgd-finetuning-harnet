@@ -1,5 +1,3 @@
 imgs
 Protocol
-attack_results_DP/final_models/
-attack_results_noDP/final_models/
-attack_results_DP/attack_model_20250625.json
+**/final_models
