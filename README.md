@@ -1,5 +1,12 @@
 # Differentially Private Fine-Tuning of Self-Supervised Learning Models for Human Activity Recognition on Wearables
 
+## Abstract
+The surge in wearable technology for health has advanced personalized Human Activity Recognition (HAR), yet introduces privacy concerns under EU regulations such as the GDPR, the AI Act and the European Health Data Space (EHDS). This study examines fine-tuning approaches for self-supervised models on wearable data, using Differentially Private Stochastic Gradient Descent (DP-SGD) to balance privacy and utility. Using the PAMAP2 dataset and the HarNet10 model, we compare classifier head and full model fine-tuning. Our results show that tuning only the classifier head (4.83% of parameters) preserves higher accuracy and F1-scores while significantly reducing vulnerability to membership inference attacks compared to non-private baselines. This strategy provides a lightweight and regulation-compliant framework for privacy-preserving HAR on wearables.
+
+<img src="imgs/acc_f1_scores.png" class="img-responsive">
+
+<img src="imgs/roc_curves_against_attack.png" class="img-responsive">
+
 ## Overview
 This repository contains Colab-ready notebooks for two experiments that fine-tune a self-supervised foundation model (HarNet10) on the PAMAP2 wearable HAR dataset, with and without Differentially Private SGD (DP-SGD), and then evaluate robustness to Membership Inference Attacks (MIA).
 
@@ -7,6 +14,7 @@ This repository contains Colab-ready notebooks for two experiments that fine-tun
 - **Experiment 2 (Empirical Privacy)**: Fine-tune models on the datasets, save them, generate predictions, and run membership inference attacks.
 
 **Dataset:** We use the publicly available PAMAP2 Physical Activity Monitoring dataset from the UCI Machine Learning Repository (DOI: 10.24432/C5NW2H).
+
 **Foundation Model:** We adapt HarNet10, a self-supervised ResNet-V2–based foundation model pre-trained on 700k person-days of wrist accelerometer data, as described by Yuan et al., 2024.
 
 All notebooks are designed to run seamlessly on **Google Colab**.
@@ -22,13 +30,14 @@ All notebooks are designed to run seamlessly on **Google Colab**.
    import os
 
    drive.mount('/content/drive')
-   active_directory = '/content/drive/MyDrive/Desktop/DP_Finetuning_Harnet_Submission'
+   active_directory = '/content/drive/MyDrive/Desktop/DP_Finetuning_Harnet'
    os.chdir(active_directory)
    ```
 ---
 
 ## Folder Structure
-DP_Finetuning_Harnet_Submission/
+```
+DP_Finetuning_Harnet/
 ├── Protocol/
 │ └── raw_subject_data/ # original data from subjects
 ├── attack_results_DP/ # DP-fine-tuned target models
@@ -37,13 +46,14 @@ DP_Finetuning_Harnet_Submission/
 │ └── final_models/
 ├── downsampled_results_DP/ # Experiment 1 evaluation outputs (DP)
 ├── downsampled_results_noDP/ # Experiment 1 evaluation outputs (noDP)
+├── imgs/ # The figures based on the results
 ├── Experiment1_Finetuning_DP.ipynb # DP fine-tuning
 ├── Experiment1_Finetuning_noDP.ipynb # noDP fine-tuning
 ├── Experiment1_Analysis.ipynb # Experiment 1 eval & plots
 ├── Experiment2_Model_Saving.ipynb # Train & save DP/noDP models
 ├── Experiment2_Predictions.ipynb # Load models & generate preds
 └── Experiment2_Attack_Results.ipynb # Shadow models + membership inference
-
+```
 
 **NOTE:** To run with the existing models it is sufficient to work with 'Experiment1_Analysis.ipynb', 'Experiment2_Model_Saving.ipynb' and 'Experiment2_Attack_Results.ipynb'.
 
